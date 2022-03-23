@@ -5,6 +5,7 @@ start:
   - deuzi says normal: hi
   - show rice: normal AT RIGHT WITH FADE
   - rice says normal: hello.
+  - rice says normal: asldfhsldhasdklfshaafsk
   - show rice: unsized AT LEFT WITH FADE
   - choice:
     - "To end":
