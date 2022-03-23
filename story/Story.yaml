@@ -1,0 +1,75 @@
+start:
+  - play morningBGM:
+  - show alley: WITH FADE CONTINUE
+  - show deuzi: happy AT CENTER WITH FADE
+  - deuzi says normal: hi
+  - show rice: normal AT RIGHT WITH FADE
+  - rice says normal: hello.
+  - show rice: unsized AT LEFT WITH FADE
+  - choice:
+    - "To end":
+      - deuzi says happy: To the end we go!
+    - "To evidence test":
+      - deuzi says normal: To the evidence test!
+      - scene: testScene
+
+  - scene: endGame
+
+testScene:
+  - show room: WITH Clues CONTINUE
+  - show deuzi: happy AT CENTER WITH FADE
+  - deuzi says: Hello, welcome to (bold)Evidence Minigame!(end)
+  - call EvidenceCollection:
+    clueset: phones
+  - deuzi says: Will you search for clues?
+  - choice:
+    - 'Yes!':
+      - deuzi says happy: Let's begin.
+      - hide deuzi:
+    - 'No.':
+      - deuzi says: Ok.
+      - scene: endGame
+  - call EvidenceCollection:
+    fn: start
+
+endGame:
+  - deuzi says normal: Quickstart over!
+  - hide ALL:
+  - text: skip credits?
+  - choice:
+    - "Yes":
+      - scene: theEnd
+    - "No":
+      - scene: credits
+credits:
+  - hide ALL:
+  - effect ROLLINGCREDITS:
+    endGame: true
+    text:
+      - RenJS.V2 created by
+      - lunafromthemoon
+      - null
+      - In collaboration with
+      - RockDaFox
+      - null
+      - Inspired by Ren'Py
+      - Powered by PhaserJS
+      - null
+      - null
+      - Thanks for playing
+      - The Quickstart Game
+      - null
+      - background art and cgs by
+      - konett
+      - null
+      - characters by
+      - Shida
+      - null
+      - music by
+      - Evan Schaeffer
+      
+theEnd:
+  - hide ALL:
+    endGame: true
+    text:
+      - goodbye

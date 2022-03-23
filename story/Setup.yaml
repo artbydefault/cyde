@@ -1,0 +1,88 @@
+
+backgrounds:
+  room: assets/backgrounds/room_day.jpg
+  room_night: assets/backgrounds/room_night.jpg
+  room_night_light: assets/backgrounds/room_night_light.jpg
+  alley: assets/backgrounds/alleyway_1_resized.jpg
+  alleyTest: assets/backgrounds/alleyway_1_uncropped.jpg
+
+
+characters:
+  deuzi:
+    displayName: Deuzilene
+    speechColour: "#ca90cf"
+    looks:
+      normal: assets/characters/Char3NormalSchool.png
+      happy: assets/characters/Char3HappySchool.png
+      angry: assets/characters/Char3AngrySchool.png
+  
+  rice:
+    displayName: Rice
+    looks:
+      normal: assets/characters/Rice_sized.jpg
+      unsized: assets/characters/Rice_unsized.jpg
+
+music:
+  rollingCredits: assets/audio/Evan_Schaeffer_-_01_-_Aqueduct.mp3
+  morningBGM: assets/audio/Evan_Schaeffer_-_03_-_Glow.mp3
+sfx:
+  ringtoneSFX: assets/audio/nokia6210-24-elise.mp3
+  ringtoneSFX2: assets/audio/alcatel-top_secret.mp3
+
+extra:
+  spritesheets:
+    phone_pink: assets/objects/phone1.png
+    phone_blue: assets/objects/phone2.png
+    forbidden_love: assets/objects/forbiddenlove.png
+    ukimasu: assets/objects/ukimasu.png
+
+# evidence game stuff
+EvidenceCollection:
+  clueSets:
+    phones:
+      title: 少年少女
+      clues:
+        PinkPhone:
+          text: Pink Phone
+          icon: phone_pink
+          x: 100
+          y: 100
+        BluePhone:
+          text: Blue Phone
+          icon: phone_blue
+          x: 100
+          y: 200
+        ForbiddenLove:
+          text: Romeo and Juliet
+          icon: forbidden_love
+          x: 100
+          y: 300
+        Ukimasu:
+          text: 今から…浮きます
+          icon: ukimasu
+          x: 200
+          y: 200
+      connections:
+        GirlMeetsBoy:
+          text: Girl Meets Boy
+          link:
+            - PinkPhone
+            - BluePhone
+          imply:
+            - ForbiddenLove
+  clueRooms:
+    room:
+      clueset: phones
+      objects:
+        PinkPhone:
+          text: Pink Phone
+          icon: phone_pink
+          x: 0
+          y: 100
+          scene: pinkPhoneScene
+        BluePhone:
+          text: Blue Phone
+          icon: phone_blue
+          x: 500
+          y: 100
+          scene: bluePhoneScene
