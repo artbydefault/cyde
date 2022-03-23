@@ -1,0 +1,51 @@
+testScene:
+  - show room: WITH Clues CONTINUE
+  - show deuzi: happy AT CENTER WITH FADE
+  - deuzi says: Hello, welcome to (bold)Evidence Minigame!(end)
+  - call EvidenceCollection:
+    clueset: phones
+  - deuzi says: Will you search for clues?
+  - choice:
+    - 'Yes!':
+      - deuzi says happy: Let's begin.
+      - hide deuzi:
+    - 'No.':
+      - deuzi says: Ok.
+      - scene: endGame
+  - call EvidenceCollection:
+    fn: start
+
+pinkPhoneScene:
+  - text: A pink phone. It's ringing and you answer the call.
+  - text: (italic)Hello, your shipment of 1 Hatsume Miku has arrived.(end)
+  - call EvidenceCollection:
+    fn: add
+    obj: Ukimasu
+    objAttr:
+      key: Ukimasu
+      text: 今から…浮きます
+      icon: ukimasu
+      x: 300
+      y: 100
+      scene: ukimasuScene
+
+  - call EvidenceCollection:
+    fn: start
+
+bluePhoneScene:
+  - text: A blue phone, you decide to pick it up.
+  - call EvidenceCollection:
+    fn: remove
+    obj: BluePhone
+  - call EvidenceCollection:
+    fn: start
+
+ukimasuScene:
+  - text: 今から…浮きます
+  - call EvidenceCollection:
+    fn: start
+
+endGame:
+  - show deuzi: happy AT CENTER WITH FADE
+  - deuzi says: Evidence Test over!
+  - endgame:
